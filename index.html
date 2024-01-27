@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      overflow: hidden;
+      background-color: #1a1a1a;
+      font-family: 'Arial', sans-serif;
+    }
+
+    canvas {
+      display: block;
+    }
+
+    #contentContainer {
+      position: absolute;
+      top: 50%;
+      left: 8%;
+      transform: translateY(-50%);
+      text-align: left;
+      color: white;
+      font-family: 'Arial', sans-serif;
+      font-size: 48px;
+      display: flex;
+      align-items: center;
+    }
+
+    #educationText {
+      color: #fff;
+      font-size: 48px;
+      margin-left: 20px;
+    }
+
+    #botIcon {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      width: 100px;
+      height: 100px;
+      border-radius: 10px;
+      background-image: url('https://media.discordapp.net/attachments/1000673270128967706/1151490596469481472/IMG_20230913_151012.jpg?ex=658c14af&is=65799faf&hm=eedddae2759cbcc80714e86598741d05b38f59c44a46e4a9ec9a9851968ed78c&=&format=webp');
+      background-size: cover;
+      background-position: center;
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    #botIcon:hover {
+      transform: scale(1.1);
+    }
+
+    .button {
+      position: fixed;
+      top: 20px;
+      padding: 10px;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s, opacity 0.3s;
+      z-index: 1;
+      display: flex;
+      align-items: center;
+    }
+
+    #homeButton {
+      right: 20px;
+      background-color: #CD5C5C;
+    }
+
+    #shopButton {
+      right: calc(20px + 120px);
+      background-color: #CD5C5C;
+    }
+
+    #botButton {
+      right: calc(20px + 240px);
+      background-color: #CD5C5C;
+    }
+
+    .button img {
+      width: 24px;
+      height: 24px;
+      margin-right: 10px;
+    }
+
+    .button:hover {
+      background-color: #5a4fcf;
+      opacity: 1;
+    }
+
+    @media only screen and (max-width: 600px) {
+      #contentContainer {
+        left: 4%;
+      }
+    }
+
+    #inviteButton {
+      position: absolute;
+      top: 60%;
+      left: 120px;
+      transform: translateY(-50%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px;
+      background-color: #CD5C5C;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      transition: background-color 0.3s, opacity 0.3s;
+    }
+
+    #inviteButton img {
+      width: 24px;
+      height: 24px;
+      margin-right: 10px;
+    }
+
+    #inviteButton:hover {
+      background-color: #A9A9A9;
+      opacity: 1;
+    }
+
+    #scrollDown {
+      position: absolute;
+      bottom: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      cursor: pointer;
+      font-size: 24px;
+      color: #fff;
+    }
+  </style>
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script>
+    window.addEventListener("resize", AutoScale);
+    AutoScale();
+
+    function AutoScale() {
+      let width = window.innerWidth;
+
+      if (width > 1280) {
+        ChangeScale("big");
+      } else if (width <= 1280 && width > 720) {
+        ChangeScale("normal");
+      } else if (width < 720) {
+        ChangeScale("small");
+      }
+    }
+  </script>
+</head>
+
+<body>
+  <div id="contentContainer">
+    <div id="educationText">
+      <strong>Education Edition сделает ваш сервер лучшим!</strong>
+    </div>
+  </div>
+
+  <div id="homeButton" class="button" onclick="window.location.href='index.html'">
+    <img src="https://media.discordapp.net/attachments/1000673270128967706/1185519830762266675/image.png?ex=658fe861&is=657d7361&hm=afeeae3a1293665db15f56c5&=&format=webp&quality=lossless" alt="Home Icon">
+    <span style="margin-top: 3px;">Домой</span>
+  </div>
+
+  <div id="shopButton" class="button" onclick="window.location.href='nabor.html'">
+    <img src="https://media.discordapp.net/attachments/1000673270128967706/1185484821615620176/image.png?ex=658fc7c6&is=657d52c6&hm=4302bbce109811aa799229db&=&format=webp&quality=lossless" alt="Shop Icon">
+    <span>Наборы</span>
+  </div>
+
+  <div id="botButton" class="button" onclick="window.location.href='bot.html'">
+    <img src="https://media.discordapp.net/attachments/1000673270128967706/1185482482162880582/image.png?ex=658fc598&is=657d5098&hm=9f524f6f8de538348b2517129ceebdf318c87f30e96ac66340047d1b5f584d9d&=&format=webp&quality=lossless" alt="Bot Icon">
+    <span>Возможности</span>
+  </div>
+
+  <div id="inviteButton" onclick="window.location.href='invite.html'">
+    <img src="https://cdn.icon-icons.com/icons2/1381/PNG/512/discord_94308.png" alt="Invite Icon">
+    <span>Пригласить</span>
+  </div>
+
+  <div id="botIcon" onclick="window.location.href='bot.html'"></div>
+
+  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const canvas = document.createElement("canvas");
+      document.body.appendChild(canvas);
+      const ctx = canvas.getContext("2d");
+
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+
+      const particles = [];
+
+      class Particle {
+        constructor() {
+          this.x = Math.random() * canvas.width;
+          this.y = Math.random() * canvas.height;
+          this.radius = Math.random() * 1 + 0.5;
+          this.color = "rgba(255, 255, 255, 0.2)";
+          this.speedX = Math.random() * 1 - 0.5;
+          this.speedY = Math.random() * 2 + 1;
+        }
+
+        update() {
+          this.x += this.speedX;
+          this.y += this.speedY;
+
+          if (this.y > canvas.height || this.y < 0) {
+            this.y = Math.random() * canvas.height;
+            this.x = Math.random() * canvas.width;
+          }
+
+          if (this.radius > 0.2) this.radius -= 0.1;
+        }
+
+        draw() {
+          ctx.beginPath();
+          ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
+          ctx.fillStyle = this.color;
+          ctx.fill();
+        }
+
+        drawLine(otherParticle) {
+          ctx.beginPath();
+          ctx.moveTo(this.x, this.y);
+          ctx.lineTo(otherParticle.x, otherParticle.y);
+          ctx.strokeStyle = this.color;
+          ctx.stroke();
+          ctx.closePath();
+        }
+      }
+
+      function createParticles() {
+        const particleCount = 100;
+        for (let i = 0; i < particleCount; i++) {
+          particles.push(new Particle());
+        }
+      }
+
+      function connectParticles() {
+        for (let a = 0; a < particles.length; a++) {
+          for (let b = a; b < particles.length; b++) {
+            const distance = Math.sqrt(
+              Math.pow(particles[a].x - particles[b].x, 2) +
+              Math.pow(particles[a].y - particles[b].y, 2)
+            );
+
+            if (distance < 100) {
+              particles[a].drawLine(particles[b]);
+            }
+          }
+        }
+      }
+
+      function animateParticles() {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        for (let i = 0; i < particles.length; i++) {
+          particles[i].update();
+          particles[i].draw();
+        }
+
+        connectParticles();
+
+        requestAnimationFrame(animateParticles);
+      }
+
+      window.addEventListener("resize", function () {
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+      });
+
+      createParticles();
+      animateParticles();
+    });
+  </script>
+</body>
+
+</html>

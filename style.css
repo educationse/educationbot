@@ -1,0 +1,54 @@
+html {
+    width: 80%;
+    max-width: 720px;
+  }
+  
+  #contentContainer {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    font-family: 'Arial', sans-serif;
+    font-size: 48px;
+    display: flex;
+    align-items: center;
+  }
+  
+  window.addEventListener("resize", AutoScale); //Масштабируем страницу при растягивании окна
+  
+  AutoScale(); //Масштабируем страницу после загрузки
+  
+  @media only screen and (max-width: 600px) {
+    #contentContainer {
+      left: 4%;
+    }
+  
+    #homeButton {
+      bottom: 600px;
+      right: 150px;
+    }
+  
+    #inviteButton {
+      left: 20px;
+    }
+  }
+  
+  @media only screen and (max-width: 720px) {
+    #contentContainer {
+      left: 4%;
+    }
+  
+    #homeButton {
+      bottom: 600px;
+      right: 150px;
+    }
+  
+    #inviteButton {
+      left: 20px;
+    }
+  }
+  
+
+  
