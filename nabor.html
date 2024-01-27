@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Наборы</title>
+    <title>Полезные ссылки</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -42,7 +42,7 @@
             color: #fff;
         }
 
-        .product {
+        .product1, .product2 {
             margin: 20px;
             padding: 20px;
             background-color: rgba(51, 51, 51, 0.7);
@@ -51,7 +51,7 @@
             text-align: left;
         }
 
-        .product img {
+        .product1 img, .product2 img {
             max-width: 150px;
             max-height: 150px;
             border-radius: 5px;
@@ -59,16 +59,16 @@
             margin-right: 10px;
         }
 
-        .product h2 {
+        .product1 h2, .product2 h2 {
             color: #fff;
             margin-top: 0;
         }
 
-        .product p {
+        .product1 p, .product2 p {
             color: #E6E6FA;
         }
 
-        .vbucks-icon {
+        .vbucks-icon, .icon {
             width: 150px;
             height: 150px;
             border-radius: 5px;
@@ -79,29 +79,166 @@
             font-weight: bold;
         }
 
+        .documentation-button, .buy-button, .read-button, .nav-button {
+            background-color: #CD5C5C;
+            color: #fff;
+            padding: 10px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 10px;
+        }
 
-      
+        .read-button {
+            margin-top: 10px;
+        }
+
+        .product2:not(:first-child) {
+            background-color: rgba(51, 51, 51, 0.7);
+            padding: 20px;
+            margin: 20px;
+            text-align: left;
+            border-radius: 10px;
+        }
+
+        .icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 5px;
+            margin-top: 20px;
+        }
+
+        .terms-of-use {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+
+        .read-button:hover + .terms-of-use {
+            max-height: 1000px;
+        }
+
+        .navigation-buttons {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+        }
+
+        .navigation-buttons .nav-button {
+            margin-left: 10px;
+        }
+
+        #naborButton,
+        #faqButton,
+        #homeButton {
+            position: fixed;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1;
+            transition: background-color 0.3s, opacity 0.3s;
+            opacity: 0.8;
+            color: black;
+        }
+
+        #naborButton {
+            right: 190px;
+            top: 20px;
+            background-color: yellow;
+        }
+
+        #faqButton {
+            right: 130px;
+            top: 20px;
+            background-color: yellow;
+        }
+
+        #homeButton {
+            right: 20px;
+            top: 20px;
+            background-color: yellow;
+        }
+
+        #naborButton img,
+        #faqButton img,
+        #homeButton img {
+            width: 26px;
+            height: 24px;
+            margin-right: 10px;
+        }
+
+        #naborButton:hover,
+        #faqButton:hover,
+        #homeButton:hover {
+            background-color: #5a4fcf;
+            opacity: 1;
+        }
+
+        h1 {
+            color: #fff;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        h1:hover {
+            transform: rotate(360deg);
+        }
+
+        .product1, .product2 {
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .product1:hover, .product2:hover {
+            transform: scale(1.1);
+        }
+
+        .documentation-button, .read-button, .nav-button {
+            transition: background-color 0.3s, transform 0.3s ease-in-out;
+        }
+
+        .documentation-button:hover, .read-button:hover, .nav-button:hover {
+            background-color: #8B0000; /* Change to your desired hover color */
+            transform: scale(1.1);
+        }
     </style>
 </head>
 <body>
 
-    <h1>Наборы</h1>
+    <h1>Полезные ссылки</h1>
 
-    <div class="product">
-        <img src="http://surl.li/oidry" alt="Набор Стартовый капитал" class="vbucks-icon">
-        <h2>Набор «Начинающий Магнат»</h2>
-        <p><span class="price">Цена:</span> <span class="price">59р</span></p>
-        <p>Набор включает в себя 300.000 валюты на любом сервере, обычный VIP. Чтобы купить, нажмите на кнопку.</p>
-        <a href="https://discord.gg/jeaAq2dheE" class="buy-button"></a>
+    <div class="product1">
+        <img src="https://media.discordapp.net/attachments/1190010420254232609/1200788717338628239/image.png?ex=65c774a3&is=65b4ffa3&hm=874619b81dee0f65900dc8a33a077757d74d3d80f07870bbd82667eb3401e7a1&=&format=webp&quality=lossless&width=563&height=563" alt="Иконка" class="icon">
+        <h2>Документация</h2>
+        <p>Education Edition - многофункциональный бот с документацией по командам.</p>
+        <a href="https://education-edition.gitbook.io/education-edition/" class="documentation-button">Перейти</a>
     </div>
 
-    <div class="product">
-        <img src="http://surl.li/oidte" alt="Да" class="vbucks-icon">
-        <h2>Набор «Стартовый Капитал»</h2>
-        <p><span class="price">Цена:</span> <span class="price">99р</span></p>
-        <p>Набор «Стартовый Капитал» включает в себя 800.000 валюты на любом сервере, обычный вип, 15 репутации. 
-            Чтобы приобрести, нажмите на кнопку.</p>
-        <a href="https://discord.gg/jeaAq2dheE" class="buy-button"></a>
+    <div class="product2">
+        <img src="https://media.discordapp.net/attachments/1190010420254232609/1200792567877488680/image.png?ex=65c77839&is=65b50339&hm=0abe218c32b5bdc435a582bc7b9d14371795766f7c468ce9cc502c77e4a313bd&=&format=webp&quality=lossless&width=563&height=563" alt="Иконка" class="icon">
+        <h2>Условия Использования</h2>
+        <p>Ограничения и рекомендации. Ознакомьтесь перед использованием.<span class="price"></span> <span class="price"></span></p>
+        <a href="#" class="read-button">Читать</a>
+        <div class="terms-of-use">
+            <p>Условия использования:</p>
+            <ul>
+                <li>Добавляйте бота "Education Edition" на свой Discord сервер согласно его назначению.</li>
+                <li>Мы не несем ответственности за негативные последствия использования бота.</li>
+                <li>При использовании бота соблюдайте правила этикета и не нарушайте права других пользователей.</li>
+                <li>Бот может обновляться для улучшения функциональности и исправления ошибок.</li>
+                <li>Бот предоставляется "как есть", без гарантий. Мы не несем ответственности за проблемы при использовании бота.</li>
+                <li>Пожалуйста, полностью понимайте и соглашайтесь с условиями перед использованием бота "Education Edition".</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="navigation-buttons">
+        <a href="bot.html" class="nav-button">Возможности</a>
+        <a href="nabor.html" class="nav-button">FAQ</a>
+        <a href="index.html" class="nav-button">Домой</a>
     </div>
 
 </body>
