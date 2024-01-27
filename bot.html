@@ -2,178 +2,163 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <style>
-    body {
-      background-color: #222;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      height: 100vh;
-      margin: 0;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            background-color: #222;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
 
-    #header {
-      margin-bottom: 30px;
-    }
+        #header {
+            margin-bottom: 30px;
+        }
 
-    #capabilitiesText {
-      color: white;
-      font-size: 36px;
-      margin-bottom: 20px;
-    }
+        #capabilitiesText {
+            color: white;
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
 
-    .container {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
 
-    .card {
-      background-color: #ccc;
-      border-radius: 10px;
-      margin: 0 10px 20px 10px;
-      padding: 20px;
-      width: 200px;
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
+        .card {
+            background-color: #ccc;
+            border-radius: 10px;
+            margin: 0 10px 20px 10px;
+            padding: 20px;
+            width: 200px;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            transition: transform 0.3s ease-in-out;
+        }
 
-    .icon {
-      width: 40px;
-      height: 40px;
-      margin-bottom: 10px;
-    }
+        .card:hover {
+            transform: scale(1.05);
+        }
 
-    body {
-      margin: 0;
-      overflow: hidden;
-      background-color: #1a1a1a;
-    }
+        .icon {
+            width: 40px;
+            height: 40px;
+            margin-bottom: 10px;
+        }
 
-    canvas {
-      display: block;
-    }
+        body {
+            margin: 0;
+            overflow: hidden;
+            background-color: #1a1a1a;
+        }
 
-    #contentContainer {
-      position: absolute;
-      top: 20px;
-      left: 20px;
-      text-align: left;
-      color: white;
-      font-family: 'Arial', sans-serif;
-      font-size: 24px;
-      display: flex;
-      align-items: center;
-    }
+        canvas {
+            display: block;
+        }
 
-    #botIcon {
-      width: 100px;
-      height: 100px;
-      margin-right: 20px;
-      border-radius: 10px;
-    }
+        #contentContainer {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            text-align: left;
+            color: white;
+            font-family: 'Arial', sans-serif;
+            font-size: 24px;
+            display: flex;
+            align-items: center;
+        }
 
-    #naborButton,
-    #homeButton {
-      position: fixed;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      padding: 10px;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      z-index: 1;
-      transition: background-color 0.3s, opacity 0.3s;
-      opacity: 0.8;
-      color: black;
-    }
+        #botIcon {
+            width: 100px;
+            height: 100px;
+            margin-right: 20px;
+            border-radius: 10px;
+        }
 
-    #naborButton {
-      right: 130px;
-      top: 20px;
-      background-color: yellow;
-    }
+        .navigation-buttons {
+            display: flex;
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            z-index: 1;
+        }
 
-    #homeButton {
-      right: 20px;
-      top: 20px;
-      background-color: yellow;
-    }
+        .nav-button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-right: 10px;
+            background-color: #CD5C5C;
+            opacity: 0.8;
+            color: black;
+            text-decoration: none;
+            transition: background-color 0.3s, opacity 0.3s, transform 0.3s ease-in-out;
+        }
 
-    #naborButton img,
-    #homeButton img {
-      width: 24px;
-      height: 24px;
-      margin-right: 10px;
-    }
-
-    #naborButton:hover,
-    #homeButton:hover {
-      background-color: #5a4fcf;
-      opacity: 1;
-    }
-  </style>
+        .nav-button:hover {
+            background-color: #CD5C5C;
+            opacity: 1;
+            transform: scale(1.1);
+        }
+    </style>
 </head>
 
 <body>
-  <div id="header">
-    <img src="" alt="">
-    <h1 id="capabilitiesText">🛠️ Мои возможности</h1>
-  </div>
-
-  <div class="container">
-    <div class="card">
-      <img class="icon"
-        src="https://media.discordapp.net/attachments/1000673270128967706/1185508000983687198/image.png?ex=658fdd5d&is=657d685d&hm=c8ccd13ba897fb5ca2bb7aedd52796b40da0255f26fca2acdc1481538de83f13&=&format=webp&quality=lossless"
-        alt="Economy Icon">
-      <h2>Экономика</h2>
-      <p>Погрузитесь в увлекательный мир экономики, настраиваемый под ваш сервер. Это нечто совершенно уникальное!</p>
+    <div id="header">
+        <img src="" alt="">
+        <h1 id="capabilitiesText">🛠️ Мои возможности</h1>
     </div>
 
-    <div class="card" id="securityCard">
-      <img class="icon"
-        src="https://media.discordapp.net/attachments/1000673270128967706/1185512338334433340/image.png?ex=658fe167&is=657d6c67&hm=5b14644b51c5ef4c6d87dadaba355636cb1e6726f358949d1e5ffd9565018730&=&format=webp&quality=lossless"
-        alt="Security Icon">
-      <h2>Безопасность</h2>
-      <p>Наш бот умеет держать порядок на вашем сервере. Забыли, как бороться с нарушителями? Не беда, у нас есть решение!</p>
+    <div class="container">
+        <div class="card">
+            <img class="icon"
+                src="https://media.discordapp.net/attachments/1000673270128967706/1185508000983687198/image.png?ex=658fdd5d&is=657d685d&hm=c8ccd13ba897fb5ca2bb7aedd52796b40da0255f26fca2acdc1481538de83f13&=&format=webp&quality=lossless"
+                alt="Economy Icon">
+            <h2>Экономика</h2>
+            <p>Погрузитесь в увлекательный мир экономики, настраиваемый под ваш сервер. Это нечто совершенно уникальное!
+            </p>
+        </div>
+
+        <div class="card" id="securityCard">
+            <img class="icon"
+                src="https://media.discordapp.net/attachments/1000673270128967706/1185512338334433340/image.png?ex=658fe167&is=657d6c67&hm=5b14644b51c5ef4c6d87dadaba355636cb1e6726f358949d1e5ffd9565018730&=&format=webp&quality=lossless"
+                alt="Security Icon">
+            <h2>Безопасность</h2>
+            <p>Наш бот умеет держать порядок на вашем сервере. Забыли, как бороться с нарушителями? Не беда, у нас есть
+                решение!</p>
+        </div>
+
+        <div class="card" id="settingsCard">
+            <img class="icon"
+                src="https://media.discordapp.net/attachments/1000673270128967706/1185513312654471279/image.png?ex=658fe24f&is=657d6d4f&hm=b030c526348ec6a674c8e086e8e2d98a99efd3bd8f44d70560b4c7891fb5f894&=&format=webp&quality=lossless"
+                alt="Settings Icon">
+            <h2>Настройки</h2>
+            <p>Эта категория полна полезных настроек для вашего сервера. Вы не пожалеете, что познакомились с ней.</p>
+        </div>
     </div>
 
-    <div class="card" id="settingsCard">
-      <img class="icon"
-        src="https://media.discordapp.net/attachments/1000673270128967706/1185513312654471279/image.png?ex=658fe24f&is=657d6d4f&hm=b030c526348ec6a674c8e086e8e2d98a99efd3bd8f44d70560b4c7891fb5f894&=&format=webp&quality=lossless"
-        alt="Settings Icon">
-      <h2>Настройки</h2>
-      <p>Эта категория полна полезных настроек для вашего сервера. Вы не пожалеете, что познакомились с ней.</p>
+    <div id="contentContainer">
+        <img id="botIcon"
+            src="https://media.discordapp.net/attachments/1000673270128967706/1151490596469481472/IMG_20230913_151012.jpg?ex=658c14af&is=65799faf&hm=e2759cbcc80714e86598741d05b38f59c44a46e4a
+            edddae9ec9a9851968ed78c&=&format=webp" alt="Bot Icon">
+        <div>
+            <strong>Education Edition</strong>
+        </div>
     </div>
-  </div>
 
-  <div id="contentContainer">
-    <img id="botIcon"
-      src="https://media.discordapp.net/attachments/1000673270128967706/1151490596469481472/IMG_20230913_151012.jpg?ex=658c14af&is=65799faf&hm=e2759cbcc80714e86598741d05b38f59c44a46e4a
-      edddae9ec9a9851968ed78c&=&format=webp" alt="Bot Icon">
-    <div>
-      <strong>Education Edition</strong>
+    <div class="navigation-buttons">
+        <a href="bot.html" class="nav-button">Возможности</a>
+        <a href="nabor.html" class="nav-button">FAQ</a>
+        <a href="index.html" class="nav-button">Домой</a>
     </div>
-  </div>
-
-  <div id="naborButton" onclick="window.location.href='nabor.html'">
-    <img
-      src="https://media.discordapp.net/attachments/1000673270128967706/1185484821615620176/image.png?ex=658fc7c6&is=657d52c6&hm=35472f3b57f74cf71f8084177839ff936670b8d04302bbce109811aa799229db&=&format=webp&quality=lossless"
-      alt="Nabor Icon">
-    Наборы
-  </div>
-
-  <div id="homeButton" onclick="window.location.href='index.html'">
-    <img
-      src="https://media.discordapp.net/attachments/1000673270128967706/1185519830762266675/image.png?ex=658fe861&is=657d7361&hm=afeeae3a1293665db15f56c5&=&format=webp&quality=lossless"
-      alt="Home Icon">
-    Домой
-  </div>
 
 </body>
 
