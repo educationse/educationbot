@@ -5,6 +5,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
+
+@keyframes changeBackgroundColor {
+  0% { background-color: #1a1a1a; }
+  50% { background-color: #4CAF50; } /* зеленый */
+  100% { background-color: #1a1a1a; }
+}
+
+body {
+  animation: changeBackgroundColor 10s infinite; /* повторять анимацию бесконечно каждые 10 секунд */
+}
+    
     body {
       margin: 0;
       overflow: hidden;
